@@ -16,11 +16,10 @@ public class ShooterRPM extends Command {
    */
   ShooterSubsystem m_shooter;
   public double counter = 0;
-  public double m_RPM;
-  public ShooterRPM(ShooterSubsystem shooter, double RPM) {
+
+  public ShooterRPM(ShooterSubsystem shooter) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_shooter = shooter;
-    m_RPM = RPM;
     addRequirements(this.m_shooter);
 
   }
@@ -32,7 +31,7 @@ public class ShooterRPM extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_shooter.setRPM(m_RPM);
+    m_shooter.setRPM(m_shooter.getCommandedRPM());
     counter++;
   }
 

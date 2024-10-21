@@ -26,9 +26,13 @@ public class DriveManipulation {
 
     // offset for where motors are in radians
     private double[] swerveAngleOffset = {
-        - 185 * (Math.PI /180),
-        115 * (Math.PI /180),
-        5 * (Math.PI /180),
+       //FL
+        15 * (Math.PI /180),
+        //FR
+        115 + 90 * (Math.PI /180),
+        //RL
+        25 * (Math.PI /180),
+        //RR
         200 * (Math.PI /180),
     };
     

@@ -119,8 +119,7 @@ public class Vars {
   public static final boolean SHOOTER_TOP_REVERSED = true;
   public static final boolean SHOOTER_BOTTOM_REVERSED = true;
   public static final double SHOOTER_KP = .15; 
-  public static final double SHOOTER_DEFAULT = 4800.0;
-  public static final double SHOOTER_AMP = 200.0;
+  public static final double SHOOTER_DEFAULT = 6500.0;
   public static final double SHOOTER_TOLERANCE = 500;
 
 }

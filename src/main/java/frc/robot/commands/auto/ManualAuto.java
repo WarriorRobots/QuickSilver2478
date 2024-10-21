@@ -32,8 +32,8 @@ public class ManualAuto extends SequentialCommandGroup {
 
     addCommands(
       new ParallelDeadlineGroup(new WaitCommand(2), new SequentialCommandGroup(
-        new ParallelDeadlineGroup(new ShooterPrep(feed), new ShooterRPM(shooter, 4800)),
-        new ShooterFeed(shooter, feed, 4800)
+        new ParallelDeadlineGroup(new ShooterPrep(feed), new ShooterRPM(shooter)),
+        new ShooterFeed(shooter, feed)
       ))
       // new ParallelDeadlineGroup(new WaitCommand(3), new ParallelCommandGroup(
       //   new TankDrive(tank, ()->-.5, ()->-.5)),

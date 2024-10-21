@@ -22,8 +22,8 @@ public class ShooterSequence extends SequentialCommandGroup {
    */
   public ShooterSequence(ShooterSubsystem shooter, FeedSubsystem feed) {
     super(
-      new ShooterRPM(shooter, 4800),
-      new ShooterFeed(shooter, feed, 4800)
+      new ShooterRPM(shooter),
+      new ShooterFeed(shooter, feed)
     );
   }
 }

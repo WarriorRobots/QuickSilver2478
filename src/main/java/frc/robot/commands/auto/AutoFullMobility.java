@@ -34,8 +34,8 @@ public class AutoFullMobility extends SequentialCommandGroup {
 
     addCommands(
       new ParallelDeadlineGroup(new WaitCommand(2), new SequentialCommandGroup(
-        new ParallelDeadlineGroup(new ShooterPrep(feed), new ShooterRPM(shooter, 4800)),
-        new ShooterFeed(shooter, feed, 4800)
+        new ParallelDeadlineGroup(new ShooterPrep(feed), new ShooterRPM(shooter)),
+        new ShooterFeed(shooter, feed)
       )),
       new ParallelDeadlineGroup(new WaitCommand(3), new ParallelCommandGroup(
         new SwerveDriveAuto(drive, 0, -.2, 0)
@@ -49,8 +49,8 @@ public class AutoFullMobility extends SequentialCommandGroup {
       new ParallelDeadlineGroup(new WaitCommand(3.5), new SwerveDriveAuto(drive, 0, .2, 0)),
       //new ParallelDeadlineGroup(new WaitCommand(.5), new RunFeed(feed, -.5)),
       new ParallelDeadlineGroup(new WaitCommand(2), new SequentialCommandGroup(
-        new ParallelDeadlineGroup(new ShooterPrep(feed), new ShooterRPM(shooter, 4800)),
-        new ShooterFeed(shooter, feed, 4800)
+        new ParallelDeadlineGroup(new ShooterPrep(feed), new ShooterRPM(shooter)),
+        new ShooterFeed(shooter, feed)
       ))
     );
 

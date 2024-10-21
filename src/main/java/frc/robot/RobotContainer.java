@@ -84,19 +84,12 @@ public class RobotContainer {
   );
 
   // Shooter Commands
-  private final ShooterRPM m_shooterRPM = new ShooterRPM(m_shooter, 4800);
-  private final ShooterRPM m_shooterRPM_Amp = new ShooterRPM(m_shooter, 200);
+  private final ShooterRPM m_shooterRPM = new ShooterRPM(m_shooter);
   private final ShooterPrep m_shooterPrep = new ShooterPrep(m_feed);
-  private final ShooterFeed m_shooterFeed = new ShooterFeed(m_shooter, m_feed, 4800);
-  private final ShooterFeed m_shooterFeed_Amp = new ShooterFeed(m_shooter, m_feed, 200);
-
+  private final ShooterFeed m_shooterFeed = new ShooterFeed(m_shooter, m_feed);
   private final SequentialCommandGroup m_shooterSequence = new SequentialCommandGroup(
     new ParallelDeadlineGroup(m_shooterPrep, m_shooterRPM),
     m_shooterFeed
-  );
-  private final SequentialCommandGroup m_shooterSequenceAmp = new SequentialCommandGroup(
-    new ParallelDeadlineGroup(m_shooterPrep, m_shooterRPM_Amp),
-    m_shooterFeed_Amp
   );
   //private final ShooterFeed m_shooterSequence = new ShooterFeed(m_shooter, m_feed);
 
@@ -131,7 +124,6 @@ public class RobotContainer {
 
     IO.xbox1_Up.whileTrue(m_rest);
     IO.xbox1_A.whileTrue(m_scoreAmp);
-    IO.xbox1_Y.whileTrue(m_shooterSequenceAmp);
 
     // if(IO.getXBox1LeftTrigger()>=.5){
     //   new ArmDegree(m_arm, 105);

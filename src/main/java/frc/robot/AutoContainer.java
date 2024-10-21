@@ -64,7 +64,7 @@ public class AutoContainer {
 
   // Event marker configuration
   NamedCommands.registerCommand("test", new InstantCommand());
-  NamedCommands.registerCommand("shootNear", new SequentialCommandGroup(new ShooterPrep(new FeedSubsystem()), new ShooterFeed(new ShooterSubsystem(), new FeedSubsystem(), 4800)));
+  NamedCommands.registerCommand("shootNear", new SequentialCommandGroup(new ShooterPrep(new FeedSubsystem()), new ShooterFeed(new ShooterSubsystem(), new FeedSubsystem())));
   NamedCommands.registerCommand("intake", new ParallelCommandGroup(new RunIntake(new IntakeSubsystem(), ()->Vars.INTAKE_FORWARD), new FeedNote(new FeedSubsystem(), Vars.FEED_FORWARD)));
 
   // Auto configuration

@@ -17,17 +17,15 @@ public class ShooterFeed extends Command {
 
   ShooterSubsystem m_shooter;
   FeedSubsystem m_feed;
-  double m_RPM;
   
   /**
    * A command that runs the shooter and then when the shooter is up to speed, feeds the shooter.
    */
-  public ShooterFeed(ShooterSubsystem shooter, FeedSubsystem feed, double RPM) {
+  public ShooterFeed(ShooterSubsystem shooter, FeedSubsystem feed) {
     m_shooter = shooter;
     addRequirements(m_shooter);
     m_feed = feed;
     addRequirements(m_feed);
-    m_RPM = RPM;
 }
 
   // Called when the command is initially scheduled.
@@ -38,7 +36,7 @@ public class ShooterFeed extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (Math.abs(m_shooter.getRPM()-m_RPM) < Vars.SHOOTER_TOLERANCE) {
+    if (Math.abs(m_shooter.getRPM()-m_shooter.getCommandedRPM()) < Vars.SHOOTER_TOLERANCE) {
       // if the shooter is fast enough, feed it
       m_feed.feedAtPercent(Vars.FEED_SHOOT);
     } else {
@@ -52,7 +50,7 @@ public class ShooterFeed extends Command {
       }
     }
     // run/rev the shooter
-    m_shooter.setRPM(m_RPM);
+    m_shooter.setRPM(m_shooter.getCommandedRPM());
   }
 
   // Called once the command ends or is interrupted.

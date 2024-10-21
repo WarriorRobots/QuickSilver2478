@@ -164,10 +164,6 @@ public class ShooterSubsystem extends SubsystemBase {
   public double getCommandedRPM() {
     return rpmConfig.getDouble(Vars.SHOOTER_DEFAULT);
   }
-  
-  public double getCommandedAmpRPM() {
-    return rpmConfig.getDouble(Vars.SHOOTER_AMP);
-  }
 
   /**
    * @return The value from the dashboard for how fast the shooter should be based on a percentage.
